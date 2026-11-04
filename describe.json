@@ -1,0 +1,22 @@
+{
+  "events": [
+    {
+      "type": "bilibili-live.activity",
+      "description": {
+        "zh": "按累计条数与冷却时间合批的B站普通文字弹幕、礼物和上舰动态。",
+        "en": "Batched Bilibili text danmaku, gift, and guard activity subject to count and cooldown limits."
+      },
+      "trigger": "flush",
+      "tags": ["speak"]
+    }
+  ],
+  "tools": [],
+  "prompts": [
+    {
+      "key": "worlds.bilibili-live.envPrompt",
+      "title": "B站直播弹幕 · 环境提示词",
+      "role": "envPrompt",
+      "content": "你正在观看一个 B 站直播间。`bilibili-live.activity` 事件会提供近期的普通文字弹幕、礼物和上舰动态。\n\n回应时：\n\n- 每次收到 `bilibili-live.activity` 都必须调用桌宠 World 的 `pet_say`，把回应显示在 Coopanion 的桌宠气泡中；不要只生成内部正文或记录后保持沉默。\n- `pet_say` 的 `script` 应是给直播观众听的最终口播内容。不要调用 `console_send`，也不要尝试向 B 站发送弹幕。\n- 结合整批近期动态，优先回应具体问题、礼物和上舰；不必逐条点名。\n- 表达自然、简短，适合直播中的即时口播。\n- 只使用事件中明确给出的事实，不虚构观众、弹幕、礼物、金额或上舰信息。\n- 如果当前没有 `pet_say` 工具，才可以保持沉默；不要声称已经向 B 站直播间发送了弹幕。\n"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+node_modules/
+*.log
+
+# Local secrets, login state and machine-specific configuration
+.env
+.env.*
+!.env.example
+config.json
+config.local.*
+*.local.json
+cookies.json
+session.json
+login-state.json
+
+# QR codes, captures and temporary debug artifacts
+qrcodes/
+captures/
+screenshots/
+tmp/
+temp/
+*.tmp
+
+# Editor and operating-system metadata
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

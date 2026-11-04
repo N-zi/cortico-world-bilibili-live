@@ -1,0 +1,52 @@
+{
+  "name": "cortico-world-bilibili-live",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Read-only Bilibili live danmaku, gift, and guard events for Cortico",
+  "license": "MIT",
+  "keywords": [
+    "cortico-world",
+    "cortico"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@11.28.6",
+  "main": "./src/index.ts",
+  "cortico": {
+    "kind": "world",
+    "api": 6,
+    "tags": [],
+    "describe": "describe.json",
+    "webUiClient": "dist/webui.js"
+  },
+  "files": [
+    "src",
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "describe.json"
+  ],
+  "scripts": {
+    "build:webui": "esbuild src/webui/client.ts --bundle --format=esm --platform=browser --outfile=dist/webui.js",
+    "pretest": "pnpm build:webui",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/qrcode": "^1.5.6",
+    "@types/ws": "^8.18.1",
+    "cortico": "^0.2.12",
+    "esbuild": "^0.28.2",
+    "qrcode": "^1.5.4",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
